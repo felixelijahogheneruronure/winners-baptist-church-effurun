@@ -21,9 +21,9 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col">
       {/* Page Header */}
-      <section className="bg-primary text-primary-foreground py-16 md:py-24 relative overflow-hidden">
-         {/* Optional: Subtle background pattern */}
-         <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cmVjdCB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9IiNmZmZmZmYiLz48cGF0aCBkPSJNMCAxMCBMIDIwIDEwIFogTSAxMCAwIEwgMTAgMjAgWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=')]"></div>
+      <section className="bg-primary text-primary-foreground py-20 md:py-28 relative overflow-hidden"> {/* Increased padding */}
+         {/* Subtle background pattern */}
+         <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cmVjdCB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9IiNmZmZmZmYiLz48cGF0aCBkPSJNMCAxMCBMIDIwIDEwIFogTSAxMCAwIEwgMTAgMjAgWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2Utd2lkdGg9IjAuMyIvPjwvc3ZnPg==')] bg-repeat"></div>
         <div className="container mx-auto max-w-4xl text-center container-padding relative z-10">
           <h1 className="h1-typography">About Us</h1>
           <p className="mt-4 text-lg md:text-xl">Learn more about our beliefs, leadership, and history.</p>
@@ -33,21 +33,21 @@ export default function AboutPage() {
       {/* Vision & Mission */}
       <section className="section-padding bg-background">
         <div className="container mx-auto max-w-5xl grid md:grid-cols-2 gap-12 container-padding">
-          <div className="flex flex-col items-center text-center md:items-start md:text-left p-6 border rounded-lg shadow-sm">
+          <div className="flex flex-col items-center text-center md:items-start md:text-left p-8 border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"> {/* Increased padding, added hover effect */}
             <div className="bg-accent text-accent-foreground rounded-full p-4 mb-5 w-fit shadow">
               <Eye className="h-8 w-8" />
             </div>
             <h2 className="h2-typography mb-4">Our Vision</h2>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-lg"> {/* Slightly larger text */}
               To be a beacon of hope and transformation in Effurun, guiding people into a life-changing relationship with Jesus Christ.
             </p>
           </div>
-          <div className="flex flex-col items-center text-center md:items-start md:text-left p-6 border rounded-lg shadow-sm">
+          <div className="flex flex-col items-center text-center md:items-start md:text-left p-8 border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"> {/* Increased padding, added hover effect */}
             <div className="bg-accent text-accent-foreground rounded-full p-4 mb-5 w-fit shadow">
               <Target className="h-8 w-8" />
             </div>
             <h2 className="h2-typography mb-4">Our Mission</h2>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-lg"> {/* Slightly larger text */}
               To nurture believers through biblical teaching, empower them for service, reach our community with the Gospel, and worship God in spirit and truth.
             </p>
           </div>
@@ -71,7 +71,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {leadershipTeam.map((leader, index) => (
               <Card key={index} className="overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
-                <div className="relative h-72 w-full"> {/* Increased height */}
+                <div className="relative h-80 w-full"> {/* Slightly increased height */}
                   <Image
                     src={leader.imageUrl}
                     alt={leader.name}
@@ -80,7 +80,7 @@ export default function AboutPage() {
                     className="group-hover:scale-105 transition-transform duration-300"
                     data-ai-hint="person portrait leader"
                   />
-                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-70 group-hover:opacity-50 transition-opacity duration-300"></div>
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300"></div> {/* Enhanced gradient */}
                 </div>
                 <CardContent className="p-6 text-center">
                   <h3 className="h3-typography mb-1">{leader.name}</h3>

@@ -21,7 +21,7 @@ export default function Home() {
          {/* Subtle Gradient Overlay */}
          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/40"></div>
         <div className="relative z-10 p-4 md:p-8 max-w-3xl container-padding">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 drop-shadow-lg">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-5 drop-shadow-lg"> {/* Adjusted margin */}
             Welcome to Winners Baptist Church Effurun
           </h1>
           <p className="text-lg md:text-xl mb-8 drop-shadow-md">
