@@ -1,3 +1,132 @@
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Clock, MapPin, Users } from 'lucide-react';
+import Link from 'next/link';
+
 export default function Home() {
-  return <></>;
+  return (
+    <div className="flex flex-col">
+      {/* Hero Section */}
+      <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center text-center bg-primary text-primary-foreground">
+        <Image
+          src="https://picsum.photos/1600/900"
+          alt="Church congregation"
+          layout="fill"
+          objectFit="cover"
+          className="opacity-30"
+          data-ai-hint="church congregation worship"
+          priority // Load hero image quickly
+        />
+        <div className="relative z-10 p-4 md:p-8 max-w-3xl">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 drop-shadow-md">
+            Welcome to Winners Baptist Church Effurun
+          </h1>
+          <p className="text-lg md:text-xl mb-8 drop-shadow-sm">
+            Join us in worship, fellowship, and service. Discover your purpose in Christ.
+          </p>
+          <div className="space-x-4">
+            <Button size="lg" variant="secondary" asChild>
+                <Link href="/about">Learn More</Link>
+            </Button>
+            <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
+              <Link href="/contact">Visit Us</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Welcome Message */}
+      <section className="section-padding bg-background">
+        <div className="container mx-auto max-w-4xl text-center container-padding">
+          <h2 className="h2-typography mb-6">A Place to Belong</h2>
+          <p className="text-lg text-muted-foreground mb-8">
+            We are a community of believers committed to growing in faith, sharing God's love,
+            and making a difference in Effurun and beyond. Whether you're new to the area or seeking
+            a spiritual home, we welcome you with open arms.
+          </p>
+          <Button asChild variant="link" className="text-lg">
+            <Link href="/about">Our Vision & Mission <span aria-hidden="true">&rarr;</span></Link>
+          </Button>
+        </div>
+      </section>
+
+      {/* Service Times */}
+      <section className="section-padding bg-secondary">
+        <div className="container mx-auto max-w-5xl container-padding">
+          <h2 className="h2-typography text-center mb-10">Join Us for Worship</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="text-center shadow-md hover:shadow-lg transition-shadow duration-300">
+              <CardHeader>
+                <div className="mx-auto bg-primary text-primary-foreground rounded-full p-3 w-fit mb-4">
+                  <Clock className="h-8 w-8" />
+                </div>
+                <CardTitle className="h3-typography">Sunday Worship</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">Join us every Sunday for a time of uplifting worship, inspiring messages, and fellowship.</p>
+                <p className="font-semibold mt-2">Time: 9:00 AM</p>
+              </CardContent>
+            </Card>
+             <Card className="text-center shadow-md hover:shadow-lg transition-shadow duration-300">
+              <CardHeader>
+                <div className="mx-auto bg-primary text-primary-foreground rounded-full p-3 w-fit mb-4">
+                  <Users className="h-8 w-8" />
+                </div>
+                <CardTitle className="h3-typography">Midweek Service</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">Deepen your faith and connect with others during our midweek Bible study and prayer meeting.</p>
+                 <p className="font-semibold mt-2">Time: Wednesdays, 6:00 PM</p>
+              </CardContent>
+            </Card>
+             <Card className="text-center shadow-md hover:shadow-lg transition-shadow duration-300">
+              <CardHeader>
+                <div className="mx-auto bg-primary text-primary-foreground rounded-full p-3 w-fit mb-4">
+                  <MapPin className="h-8 w-8" />
+                </div>
+                <CardTitle className="h3-typography">Our Location</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">Find us at the heart of Effurun. We look forward to welcoming you.</p>
+                <p className="font-semibold mt-2">123 Church Street, Effurun</p>
+                 <Button variant="link" size="sm" className="mt-2 px-0" asChild>
+                    <Link href="/contact">Get Directions</Link>
+                 </Button>
+              </CardContent>
+            </Card>
+          </div>
+           <div className="text-center mt-10">
+                <Button size="lg" asChild>
+                    <Link href="/services">View All Services</Link>
+                </Button>
+           </div>
+        </div>
+      </section>
+
+      {/* Call to Action / Next Steps */}
+       <section className="section-padding bg-background">
+         <div className="container mx-auto max-w-5xl text-center container-padding">
+           <h2 className="h2-typography mb-6">Get Involved</h2>
+           <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
+             There are many ways to connect and grow at Winners Baptist Church. Explore our ministries, join a small group, or volunteer your time.
+           </p>
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+             <Link href="/sermons" className="block p-6 bg-secondary rounded-lg shadow-sm hover:shadow-md transition-shadow">
+               <h3 className="h3-typography mb-2">Listen to Sermons</h3>
+               <p className="text-sm text-muted-foreground">Catch up on past messages.</p>
+             </Link>
+             <Link href="/events" className="block p-6 bg-secondary rounded-lg shadow-sm hover:shadow-md transition-shadow">
+               <h3 className="h3-typography mb-2">Upcoming Events</h3>
+               <p className="text-sm text-muted-foreground">See what's happening.</p>
+             </Link>
+             <Link href="/donate" className="block p-6 bg-secondary rounded-lg shadow-sm hover:shadow-md transition-shadow">
+               <h3 className="h3-typography mb-2">Give Online</h3>
+               <p className="text-sm text-muted-foreground">Support our ministry.</p>
+             </Link>
+           </div>
+         </div>
+       </section>
+    </div>
+  );
 }
