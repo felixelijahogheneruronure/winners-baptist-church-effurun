@@ -21,8 +21,10 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col">
       {/* Page Header */}
-      <section className="bg-primary text-primary-foreground py-16 md:py-20">
-        <div className="container mx-auto max-w-4xl text-center container-padding">
+      <section className="bg-primary text-primary-foreground py-16 md:py-24 relative overflow-hidden">
+         {/* Optional: Subtle background pattern */}
+         <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cmVjdCB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9IiNmZmZmZmYiLz48cGF0aCBkPSJNMCAxMCBMIDIwIDEwIFogTSAxMCAwIEwgMTAgMjAgWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=')]"></div>
+        <div className="container mx-auto max-w-4xl text-center container-padding relative z-10">
           <h1 className="h1-typography">About Us</h1>
           <p className="mt-4 text-lg md:text-xl">Learn more about our beliefs, leadership, and history.</p>
         </div>
@@ -31,8 +33,8 @@ export default function AboutPage() {
       {/* Vision & Mission */}
       <section className="section-padding bg-background">
         <div className="container mx-auto max-w-5xl grid md:grid-cols-2 gap-12 container-padding">
-          <div className="flex flex-col items-center text-center md:items-start md:text-left">
-            <div className="bg-accent text-accent-foreground rounded-full p-3 mb-4 w-fit">
+          <div className="flex flex-col items-center text-center md:items-start md:text-left p-6 border rounded-lg shadow-sm">
+            <div className="bg-accent text-accent-foreground rounded-full p-4 mb-5 w-fit shadow">
               <Eye className="h-8 w-8" />
             </div>
             <h2 className="h2-typography mb-4">Our Vision</h2>
@@ -40,8 +42,8 @@ export default function AboutPage() {
               To be a beacon of hope and transformation in Effurun, guiding people into a life-changing relationship with Jesus Christ.
             </p>
           </div>
-          <div className="flex flex-col items-center text-center md:items-start md:text-left">
-            <div className="bg-accent text-accent-foreground rounded-full p-3 mb-4 w-fit">
+          <div className="flex flex-col items-center text-center md:items-start md:text-left p-6 border rounded-lg shadow-sm">
+            <div className="bg-accent text-accent-foreground rounded-full p-4 mb-5 w-fit shadow">
               <Target className="h-8 w-8" />
             </div>
             <h2 className="h2-typography mb-4">Our Mission</h2>
@@ -56,7 +58,7 @@ export default function AboutPage() {
       <section className="section-padding bg-secondary">
         <div className="container mx-auto max-w-4xl text-center container-padding">
           <h2 className="h2-typography mb-6">Our History</h2>
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground text-lg leading-relaxed">
             Founded in [Year, e.g., 1995], Winners Baptist Church Effurun has grown from a small gathering of faithful believers into a vibrant community dedicated to serving God and neighbor. We cherish our past while looking forward to what God has in store for our future.
           </p>
         </div>
@@ -65,22 +67,24 @@ export default function AboutPage() {
       {/* Leadership Team */}
       <section className="section-padding bg-background">
         <div className="container mx-auto max-w-6xl container-padding">
-          <h2 className="h2-typography text-center mb-10">Meet Our Leadership</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <h2 className="h2-typography text-center mb-12">Meet Our Leadership</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {leadershipTeam.map((leader, index) => (
-              <Card key={index} className="overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
-                <div className="relative h-60 w-full">
+              <Card key={index} className="overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                <div className="relative h-72 w-full"> {/* Increased height */}
                   <Image
                     src={leader.imageUrl}
                     alt={leader.name}
                     layout="fill"
                     objectFit="cover"
+                    className="group-hover:scale-105 transition-transform duration-300"
                     data-ai-hint="person portrait leader"
                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-70 group-hover:opacity-50 transition-opacity duration-300"></div>
                 </div>
                 <CardContent className="p-6 text-center">
                   <h3 className="h3-typography mb-1">{leader.name}</h3>
-                  <p className="text-primary font-medium mb-2">{leader.role}</p>
+                  <p className="text-primary font-medium mb-3">{leader.role}</p>
                   <p className="text-sm text-muted-foreground">{leader.bio}</p>
                 </CardContent>
               </Card>
@@ -92,10 +96,10 @@ export default function AboutPage() {
       {/* Gallery */}
       <section className="section-padding bg-secondary">
         <div className="container mx-auto max-w-7xl container-padding">
-          <h2 className="h2-typography text-center mb-10">Church Life in Pictures</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <h2 className="h2-typography text-center mb-12">Church Life in Pictures</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"> {/* Increased gap */}
             {galleryImages.map((image, index) => (
-              <div key={index} className="relative aspect-w-3 aspect-h-2 overflow-hidden rounded-lg shadow-md group">
+              <div key={index} className="relative aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-md group"> {/* Adjusted aspect ratio */}
                 <Image
                   src={image.src}
                   alt={image.alt}
@@ -104,13 +108,16 @@ export default function AboutPage() {
                   className="group-hover:scale-105 transition-transform duration-300"
                   data-ai-hint={image.hint}
                 />
-                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity duration-300"></div>
+                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-opacity duration-300 flex items-center justify-center">
+                     {/* Optional: Add an icon or text on hover */}
+                     {/* <Search className="h-10 w-10 text-white opacity-0 group-hover:opacity-80 transition-opacity duration-300" /> */}
+                 </div>
               </div>
             ))}
           </div>
-           <div className="text-center mt-10">
+           <div className="text-center mt-12">
               {/* Optional: Link to a full gallery page */}
-              {/* <Button asChild>
+              {/* <Button size="lg" asChild>
                 <Link href="/gallery">View Full Gallery</Link>
               </Button> */}
            </div>

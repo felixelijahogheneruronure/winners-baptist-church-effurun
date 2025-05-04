@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Church, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetClose, SheetTrigger } from '@/components/ui/sheet'; // Added SheetClose
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -17,11 +17,12 @@ const navLinks = [
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm"> {/* Added shadow-sm */}
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between container-padding">
-        <Link href="/" className="flex items-center gap-2">
-          <Church className="h-6 w-6 text-primary" />
-          <span className="font-bold text-lg">Winners Baptist Church</span>
+        <Link href="/" className="flex items-center gap-2 group">
+          <Church className="h-6 w-6 text-primary group-hover:animate-pulse" /> {/* Added hover effect */}
+          <span className="font-bold text-lg hidden sm:inline-block">Winners Baptist Church</span>
+           <span className="font-bold text-base sm:hidden">WBC Effurun</span> {/* Shorter name for mobile */}
         </Link>
 
         {/* Desktop Navigation */}
@@ -30,7 +31,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="transition-colors hover:text-primary"
+              className="text-foreground/70 transition-colors hover:text-primary px-2 py-1 rounded-md hover:bg-primary/10" // Adjusted hover effect
             >
               {link.label}
             </Link>
@@ -46,18 +47,26 @@ export default function Header() {
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full max-w-xs bg-background p-6">
-              <nav className="flex flex-col space-y-4">
+            <SheetContent side="right" className="w-full max-w-xs bg-background p-6 flex flex-col"> {/* Ensure flex column */}
+               <div className="mb-6 flex items-center gap-2 border-b pb-4">
+                    <Church className="h-6 w-6 text-primary" />
+                    <span className="font-bold text-lg">Winners Baptist</span>
+               </div>
+              <nav className="flex flex-col space-y-2 flex-grow"> {/* Use space-y-2 for less spacing */}
                 {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="text-lg font-medium transition-colors hover:text-primary"
-                  >
-                    {link.label}
-                  </Link>
+                   <SheetClose asChild key={link.href}> {/* Wrap Link in SheetClose */}
+                      <Link
+                        href={link.href}
+                        className="text-lg font-medium transition-colors hover:text-primary py-2 px-3 rounded-md hover:bg-secondary"
+                      >
+                        {link.label}
+                      </Link>
+                   </SheetClose>
                 ))}
               </nav>
+               <div className="mt-auto pt-4 border-t text-center text-xs text-muted-foreground">
+                 © {new Date().getFullYear()} WBC Effurun
+               </div>
             </SheetContent>
           </Sheet>
         </div>

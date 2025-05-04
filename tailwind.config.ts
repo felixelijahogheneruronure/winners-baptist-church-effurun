@@ -61,10 +61,10 @@ export default {
   				ring: 'hsl(var(--sidebar-ring))'
   			}
   		},
-  		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
+  		borderRadius: { // Updated to match globals.css --radius = 0.75rem
+  			lg: 'var(--radius)', // 0.75rem
+  			md: 'calc(var(--radius) - 4px)', // 0.75rem - 4px = 8px
+  			sm: 'calc(var(--radius) - 8px)' // 0.75rem - 8px = 4px
   		},
   		keyframes: {
   			'accordion-down': {
