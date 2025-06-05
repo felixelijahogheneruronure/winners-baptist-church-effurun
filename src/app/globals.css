@@ -1,41 +1,41 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  /* Using Geist Sans as the primary font as defined in layout.tsx */
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
-  @apply text-base; /* Slightly larger base font */
-  @apply leading-relaxed; /* Improve readability */
+  @apply text-base;
+  @apply leading-relaxed;
 }
 
 @layer base {
-  :root {
+  :root, html[data-theme="light"] {
     --background: 0 0% 100%; /* White */
     --foreground: 0 0% 3.9%; /* Dark Gray/Black */
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    --primary: 210 65% 50%; /* Updated Blue */
+    --primary: 210 65% 50%; /* Default Blue */
     --primary-foreground: 0 0% 100%; /* White */
     --secondary: 0 0% 96.1%; /* Light Gray */
     --secondary-foreground: 0 0% 9%; /* Dark Gray */
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%; /* Medium Gray */
-    --accent: 45 90% 55%; /* Updated Gold/Orange */
+    --accent: 45 90% 55%; /* Default Gold/Orange */
     --accent-foreground: 0 0% 3.9%; /* Dark Gray/Black */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 89.8%; /* Light Gray */
     --input: 0 0% 89.8%;
-    --ring: 210 65% 50%; /* Updated Blue */
+    --ring: 210 65% 50%; /* Default Blue */
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.75rem; /* Increased radius */
+    --radius: 0.75rem;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -46,32 +46,31 @@ body {
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
+  .dark, html[data-theme="dark"] {
     --background: 220 15% 5%; /* Deeper Dark Blue */
     --foreground: 0 0% 98%; /* Near White */
     --card: 220 15% 5%;
     --card-foreground: 0 0% 98%;
     --popover: 220 15% 5%;
     --popover-foreground: 0 0% 98%;
-    --primary: 210 65% 50%; /* Updated Blue */
+    --primary: 210 65% 50%; /* Default Blue */
     --primary-foreground: 0 0% 100%; /* White */
     --secondary: 220 10% 12%; /* Darker Gray */
     --secondary-foreground: 0 0% 98%; /* Near White */
     --muted: 220 10% 12%;
     --muted-foreground: 0 0% 63.9%; /* Lighter Gray */
-    --accent: 45 90% 55%; /* Updated Gold/Orange */
+    --accent: 45 90% 55%; /* Default Gold/Orange */
     --accent-foreground: 20 15% 95%; /* Near White for better contrast on dark accent */
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 220 10% 15%; /* Slightly darker border */
     --input: 220 10% 15%;
-    --ring: 210 65% 50%; /* Updated Blue */
+    --ring: 210 65% 50%; /* Default Blue */
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --radius: 0.75rem; /* Increased radius */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -81,57 +80,175 @@ body {
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  html[data-theme="red"] {
+    --background: 0 0% 98%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 0 70% 50%; /* Red */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 94%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 0 80% 60%; /* Lighter Red */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 350 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 0 70% 50%;
+    /* Inherit chart and sidebar from light, or define specifically */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 0 70% 50%; /* Red for sidebar primary */
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 95.9%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 0 0% 91%;
+    --sidebar-ring: 0 70% 50%;
+  }
+
+  html[data-theme="yellow"] {
+    --background: 50 100% 97%; /* Very Pale Yellow */
+    --foreground: 50 30% 20%; /* Dark Brownish Grey */
+    --card: 50 100% 99%;
+    --card-foreground: 50 30% 20%;
+    --popover: 50 100% 99%;
+    --popover-foreground: 50 30% 20%;
+    --primary: 50 90% 50%; /* Bright Yellow */
+    --primary-foreground: 50 100% 10%; /* Dark brown for contrast */
+    --secondary: 50 100% 92%; /* Pale Yellow */
+    --secondary-foreground: 50 30% 20%;
+    --muted: 50 100% 92%;
+    --muted-foreground: 50 30% 40%;
+    --accent: 45 90% 55%; /* Existing Gold/Orange */
+    --accent-foreground: 45 100% 10%; /* Dark brown */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 50 50% 80%;
+    --input: 50 50% 80%;
+    --ring: 50 90% 50%;
+    --sidebar-background: 50 100% 97%;
+    --sidebar-foreground: 50 30% 26.1%;
+    --sidebar-primary: 50 90% 50%; /* Yellow for sidebar primary */
+    --sidebar-primary-foreground: 50 100% 10%;
+    --sidebar-accent: 50 100% 95.9%;
+    --sidebar-accent-foreground: 50 30% 10%;
+    --sidebar-border: 50 50% 91%;
+    --sidebar-ring: 50 90% 50%;
+  }
+
+  html[data-theme="blue"] {
+    /* This is effectively the same as current light theme, but explicitly named */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 207 70% 53%; /* PRD Calming Blue */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 210 80% 65%; /* Lighter Blue Accent */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 207 70% 53%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 207 70% 53%; /* Blue for sidebar primary */
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 207 70% 53%;
+  }
+
+  html[data-theme="green"] {
+    --background: 120 20% 98%; /* Very Light Green/Off-white */
+    --foreground: 120 25% 15%; /* Dark Green Grey */
+    --card: 120 20% 100%;
+    --card-foreground: 120 25% 15%;
+    --popover: 120 20% 100%;
+    --popover-foreground: 120 25% 15%;
+    --primary: 140 60% 40%; /* Forest Green */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 120 20% 94%; /* Light Green Grey */
+    --secondary-foreground: 120 25% 15%;
+    --muted: 120 20% 94%;
+    --muted-foreground: 120 25% 40%;
+    --accent: 130 55% 50%; /* Brighter Green */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 120 20% 85%;
+    --input: 120 20% 85%;
+    --ring: 140 60% 40%;
+    --sidebar-background: 120 20% 98%;
+    --sidebar-foreground: 120 25% 26.1%;
+    --sidebar-primary: 140 60% 40%; /* Green for sidebar primary */
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 120 20% 95.9%;
+    --sidebar-accent-foreground: 120 25% 10%;
+    --sidebar-border: 120 20% 91%;
+    --sidebar-ring: 140 60% 40%;
+  }
 }
 
 @layer base {
   * {
-    @apply border-border transition-colors duration-150 ease-in-out; /* Add subtle transition */
+    @apply border-border transition-colors duration-150 ease-in-out;
   }
   body {
     @apply bg-background text-foreground;
-    /* Apply Geist Sans font */
     font-family: var(--font-geist-sans);
   }
   h1, h2, h3, h4, h5, h6 {
-     @apply font-sans; /* Ensure headings use the sans font */
+     @apply font-sans;
   }
   p {
-      @apply leading-relaxed; /* Improve paragraph readability */
+      @apply leading-relaxed;
   }
   a, button, img, svg {
-    @apply transition-all duration-200 ease-in-out; /* Smooth transitions for interactive/visual elements */
+    @apply transition-all duration-200 ease-in-out;
   }
 }
 
-/* Additional custom styles */
 .section-padding {
-  @apply py-16 md:py-20 lg:py-24; /* Increased padding slightly */
+  @apply py-16 md:py-20 lg:py-24;
 }
 
 .container-padding {
-  @apply px-5 sm:px-8 lg:px-10; /* Slightly increased padding */
+  @apply px-5 sm:px-8 lg:px-10;
 }
 
 .h1-typography {
-    @apply text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl mb-6; /* Increased size and margin */
+    @apply text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl mb-6;
 }
 
 .h2-typography {
-    @apply text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl mb-8; /* Increased size and margin */
+    @apply text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl mb-8;
 }
 
 .h3-typography {
-    @apply text-2xl font-semibold tracking-tight sm:text-3xl mb-4; /* Increased size and margin */
+    @apply text-2xl font-semibold tracking-tight sm:text-3xl mb-4;
 }
 
 @layer utilities {
-  .animation-delay-200 {
-    animation-delay: 0.2s;
-  }
-  .animation-delay-400 {
-    animation-delay: 0.4s;
-  }
-  .animation-delay-600 {
-    animation-delay: 0.6s;
-  }
+  .animation-delay-100 { animation-delay: 0.1s; }
+  .animation-delay-200 { animation-delay: 0.2s; }
+  .animation-delay-300 { animation-delay: 0.3s; }
+  .animation-delay-400 { animation-delay: 0.4s; }
+  .animation-delay-500 { animation-delay: 0.5s; }
+  .animation-delay-600 { animation-delay: 0.6s; }
+  .animation-delay-700 { animation-delay: 0.7s; }
 }
