@@ -1,6 +1,7 @@
 
 'use client';
 
+import React from 'react'; // Import React for useMemo
 import { Moon, Sun, Palette, Check } from 'lucide-react';
 import type { Theme } from '@/context/theme-provider'; // Import type
 import { useTheme } from '@/context/theme-provider';
@@ -26,14 +27,18 @@ const themeOptions: { name: string; value: Theme; icon: React.ElementType }[] = 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
 
+  const CurrentIcon = React.useMemo(() => {
+    if (theme === 'light') return Sun;
+    if (theme === 'dark') return Moon;
+    return Palette; // Default for 'blue', 'green', 'red', 'yellow'
+  }, [theme]);
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon" aria-label="Toggle theme">
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          {/* Fallback or combined icon for other themes if Sun/Moon doesn't fit */}
-           <Palette className={`h-[1.2rem] w-[1.2rem] transition-all ${theme !== 'light' && theme !== 'dark' ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-0 -rotate-90'} absolute`} />
+          <CurrentIcon className="h-[1.2rem] w-[1.2rem] transition-all" />
+          <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">

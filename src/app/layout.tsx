@@ -38,7 +38,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} antialiased flex flex-col min-h-screen bg-background`}>
         <ThemeProvider
-          attribute="data-theme" // This is if we were using a library like next-themes. Custom provider handles it directly.
           defaultTheme="light"
           enableSystem={false} // Disable system preference for now, user explicit choice
           storageKey="wbc-effurun-theme"
