@@ -78,7 +78,7 @@ export default function ContactPage() {
           </div>
 
           {/* Map */}
-          <div className="lg:col-span-3 relative h-[550px] w-full overflow-hidden rounded-lg shadow-xl border animate-fade-in animation-delay-400">
+          <div className="lg:col-span-3 relative h-[400px] md:h-[500px] lg:h-[550px] w-full overflow-hidden rounded-lg shadow-xl border animate-fade-in animation-delay-400">
              <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.565136878608!2d5.770816614764866!3d5.56566449598438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1041adc48b067a8b%3A0x6c6c4f4e0bce9a4!2sEffurun%2C%20Delta!5e0!3m2!1sen!2sng!4v1678886000000!5m2!1sen!2sng"
                 width="100%"

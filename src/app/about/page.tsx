@@ -70,7 +70,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {leadershipTeam.map((leader, index) => (
               <Card key={index} className="overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group hover:scale-105">
-                <div className="relative h-80 w-full">
+                <div className="relative h-72 sm:h-80 w-full">
                   <Image
                     src={leader.imageUrl}
                     alt={leader.name}
