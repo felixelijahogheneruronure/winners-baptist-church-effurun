@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Dialog, DialogContent, DialogTrigger, DialogDescription, DialogTitle } from "@/components/ui/dialog";
-import { Maximize, X } from 'lucide-react';
+import { Maximize, X, Image as ImageIcon } from 'lucide-react'; // Added ImageIcon
 
 const galleryImages = [
   { id: 1, src: 'https://picsum.photos/800/600?random=50', alt: 'Church picnic', hint: 'church picnic social gathering food', description: 'Annual Church Picnic Fun' },
@@ -74,7 +74,7 @@ export default function GalleryPage() {
 
             {galleryImages.length === 0 && (
              <div className="text-center py-20 text-muted-foreground border border-dashed border-border/70 rounded-lg bg-secondary mt-10 animate-fade-in-up">
-               <Image className="h-14 w-14 mx-auto mb-5 text-primary" />
+               <ImageIcon className="h-14 w-14 mx-auto mb-5 text-primary" /> {/* Changed to ImageIcon */}
                <p className="text-xl font-medium mb-2">The Gallery is Empty</p>
                <p>No images have been added yet. Check back soon to see moments from our church life!</p>
              </div>
