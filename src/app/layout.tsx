@@ -35,7 +35,7 @@ export default function RootLayout({
   }, []);
 
   return (
-    <html lang="en" suppressHydrationWarning> {/* suppressHydrationWarning for theme provider */}
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} antialiased flex flex-col min-h-screen bg-background`}>
         <ThemeProvider
           attribute="data-theme" // This is if we were using a library like next-themes. Custom provider handles it directly.
