@@ -1,7 +1,8 @@
+import React from 'react'; // Added for React.Fragment
 import Link from 'next/link';
 import { Church, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetClose, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet'; // Added SheetHeader, SheetTitle
+import { Sheet, SheetContent, SheetClose, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -56,15 +57,16 @@ export default function Header() {
                </SheetHeader>
               <nav className="flex flex-col space-y-1 p-4 flex-grow overflow-y-auto"> {/* Added padding, scroll */}
                 {navLinks.map((link) => (
-                   <SheetClose asChild>
-                      <Link
-                        key={link.href} // Moved key here
-                        href={link.href}
-                        className="text-lg font-medium transition-colors hover:text-primary py-2.5 px-4 rounded-md hover:bg-secondary" // Adjusted padding/spacing
-                      >
-                        {link.label}
-                      </Link>
-                   </SheetClose>
+                   <React.Fragment key={link.href}>
+                     <SheetClose asChild>
+                       <Link
+                         href={link.href}
+                         className="text-lg font-medium transition-colors hover:text-primary py-2.5 px-4 rounded-md hover:bg-secondary" // Adjusted padding/spacing
+                       >
+                         {link.label}
+                       </Link>
+                     </SheetClose>
+                   </React.Fragment>
                 ))}
               </nav>
                <div className="mt-auto p-4 border-t text-center text-xs text-muted-foreground bg-secondary"> {/* Footer bg */}
