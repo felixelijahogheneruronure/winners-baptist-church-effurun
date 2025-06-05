@@ -6,63 +6,59 @@ import { FileEdit, Image, Mail, ShieldCheck, Users } from 'lucide-react'; // Exa
 
 export default function AdminPage() {
 
-  // Placeholder content - Replace with actual admin dashboard components
   return (
-    <div className="flex flex-col min-h-screen"> {/* Ensure full height */}
+    <div className="flex flex-col min-h-screen animate-fade-in">
       {/* Page Header */}
-      <section className="bg-primary text-primary-foreground py-20 md:py-24 relative overflow-hidden"> {/* Increased padding */}
-         {/* Subtle background pattern */}
+      <section className="bg-primary text-primary-foreground py-20 md:py-24 relative overflow-hidden animate-fade-in-up">
          <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cmVjdCB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9IiNmZmZmZmYiLz48cGF0aCBkPSJNMCAxMCBMIDIwIDEwIFogTSAxMCAwIEwgMTAgMjAgWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2Utd2lkdGg9IjAuMyIvPjwvc3ZnPg==')] bg-repeat"></div>
-        <div className="container mx-auto max-w-5xl text-center container-padding relative z-10"> {/* Increased max-width */}
+        <div className="container mx-auto max-w-5xl text-center container-padding relative z-10">
           <h1 className="h1-typography">Admin Dashboard</h1>
           <p className="mt-4 text-lg md:text-xl">Manage website content and settings.</p>
         </div>
       </section>
 
       {/* Admin Options */}
-      <section className="section-padding bg-background flex-grow"> {/* Ensure section grows */}
+      <section className="section-padding bg-background flex-grow animate-fade-in-up animation-delay-200">
         <div className="container mx-auto max-w-5xl container-padding">
-            <Card className="shadow-lg border border-border/50"> {/* Added shadow and border */}
+            <Card className="shadow-lg border border-border/50">
                 <CardHeader>
-                    <CardTitle className="h2-typography mb-2">Content Management</CardTitle> {/* Adjusted heading style */}
+                    <CardTitle className="h2-typography mb-2">Content Management</CardTitle>
                     <CardDescription>Update sermons, events, gallery images, and testimonies.</CardDescription>
                 </CardHeader>
-                <CardContent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4"> {/* Increased gap */}
-                    {/* TODO: Replace # with actual admin routes */}
-                    <Link href="#" className="group block p-6 bg-secondary rounded-lg hover:bg-muted transition-all duration-300 shadow-sm hover:shadow-md">
+                <CardContent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
+                    <Link href="#" className="group block p-6 bg-secondary rounded-lg hover:bg-muted transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 animate-fade-in-up animation-delay-200">
                         <FileEdit className="h-6 w-6 mb-3 text-primary group-hover:scale-110 transition-transform" />
                         <h3 className="font-semibold text-lg mb-1">Manage Sermons</h3>
                         <p className="text-sm text-muted-foreground">Add, edit, or remove sermon recordings.</p>
                     </Link>
-                    <Link href="#" className="group block p-6 bg-secondary rounded-lg hover:bg-muted transition-all duration-300 shadow-sm hover:shadow-md">
+                    <Link href="#" className="group block p-6 bg-secondary rounded-lg hover:bg-muted transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 animate-fade-in-up animation-delay-300">
                         <CalendarDays className="h-6 w-6 mb-3 text-primary group-hover:scale-110 transition-transform" />
                         <h3 className="font-semibold text-lg mb-1">Manage Events</h3>
                         <p className="text-sm text-muted-foreground">Create, update, or delete event details.</p>
                     </Link>
-                    <Link href="#" className="group block p-6 bg-secondary rounded-lg hover:bg-muted transition-all duration-300 shadow-sm hover:shadow-md">
+                    <Link href="#" className="group block p-6 bg-secondary rounded-lg hover:bg-muted transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 animate-fade-in-up animation-delay-400">
                         <Image className="h-6 w-6 mb-3 text-primary group-hover:scale-110 transition-transform" />
                         <h3 className="font-semibold text-lg mb-1">Manage Gallery</h3>
                         <p className="text-sm text-muted-foreground">Upload or organize gallery photos.</p>
                     </Link>
-                     <Link href="#" className="group block p-6 bg-secondary rounded-lg hover:bg-muted transition-all duration-300 shadow-sm hover:shadow-md">
+                     <Link href="#" className="group block p-6 bg-secondary rounded-lg hover:bg-muted transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 animate-fade-in-up animation-delay-500">
                         <Users className="h-6 w-6 mb-3 text-primary group-hover:scale-110 transition-transform" />
                          <h3 className="font-semibold text-lg mb-1">Manage Testimonies</h3>
                          <p className="text-sm text-muted-foreground">Review and publish submitted testimonies.</p>
                      </Link>
-                     <Link href="#" className="group block p-6 bg-secondary rounded-lg hover:bg-muted transition-all duration-300 shadow-sm hover:shadow-md">
+                     <Link href="#" className="group block p-6 bg-secondary rounded-lg hover:bg-muted transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 animate-fade-in-up animation-delay-600">
                         <Mail className="h-6 w-6 mb-3 text-primary group-hover:scale-110 transition-transform" />
                         <h3 className="font-semibold text-lg mb-1">Contact Submissions</h3>
                         <p className="text-sm text-muted-foreground">View messages sent via the contact form.</p>
                      </Link>
-                     {/* Optional: Add more admin sections like User Management */}
-                      <Link href="#" className="group block p-6 bg-secondary rounded-lg hover:bg-muted transition-all duration-300 shadow-sm hover:shadow-md">
+                      <Link href="#" className="group block p-6 bg-secondary rounded-lg hover:bg-muted transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 animate-fade-in-up animation-delay-[700ms]">
                         <ShieldCheck className="h-6 w-6 mb-3 text-primary group-hover:scale-110 transition-transform" />
                         <h3 className="font-semibold text-lg mb-1">Settings</h3>
                         <p className="text-sm text-muted-foreground">Configure site settings (requires auth setup).</p>
                      </Link>
                 </CardContent>
             </Card>
-             <p className="text-center text-muted-foreground mt-10 text-sm">
+             <p className="text-center text-muted-foreground mt-10 text-sm animate-fade-in-up animation-delay-600">
                 <ShieldCheck className="inline-block h-4 w-4 mr-1 align-text-bottom"/>
                 This page requires administrator privileges. Authentication setup needed.
              </p>
