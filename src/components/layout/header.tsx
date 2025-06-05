@@ -56,8 +56,9 @@ export default function Header() {
                </SheetHeader>
               <nav className="flex flex-col space-y-1 p-4 flex-grow overflow-y-auto"> {/* Added padding, scroll */}
                 {navLinks.map((link) => (
-                   <SheetClose asChild key={link.href}> {/* Wrap Link in SheetClose */}
+                   <SheetClose asChild>
                       <Link
+                        key={link.href} // Moved key here
                         href={link.href}
                         className="text-lg font-medium transition-colors hover:text-primary py-2.5 px-4 rounded-md hover:bg-secondary" // Adjusted padding/spacing
                       >
